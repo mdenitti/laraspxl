@@ -17,10 +17,11 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     // laravel way of doing $_GET business ?email=test@test.com
     $email = request('email');
-
+    // hardcode the id, cuz it's also present in the welcome blade
+    $id = 1;
     $values= ["key1"=>"value1", "key2"=>"value2"];
     $name = "massimo";
-    return view('welcome', compact('values', 'name', 'email'));
+    return view('welcome', compact('id','values', 'name', 'email'));
 });
 
 
