@@ -23,9 +23,5 @@ Route::get('/', function () {
     return view('welcome', compact('values', 'name', 'email'));
 });
 
-Route::get('users/{id}', function ($id) {
-    // 
-    return "$id";
-});
 
-Route::get('users/hello',[UserController::class, 'hello']);
+Route::get('users/{id}',[UserController::class, 'hello']);

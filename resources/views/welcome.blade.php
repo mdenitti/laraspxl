@@ -1,4 +1,4 @@
-<h1>Hi {{$name}} </h1>
+<h1>Hi {{$name}} {{$id}} </h1>
 <h2>My email = {{$email}}</h2>
 
 @foreach ($values as $key => $value)
