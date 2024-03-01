@@ -1,6 +1,6 @@
-<h1>Hi {{$name}} {{$id}} </h1>
-<h2>My email = {{$email}}</h2>
+<h1>My Users<h1>
 
-@foreach ($values as $key => $value)
-    <p>{{$key}} : {{$value}}</p>
+@foreach($users as $user)
+    <a href="/users/{{$user->id}}">{{$user->name}}</a>
+    <hr>
 @endforeach
