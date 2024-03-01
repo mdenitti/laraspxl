@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::get('users/{id}', function ($id) {
     // 
     return "$id";
 });
+
+Route::get('users/hello',[UserController::class, 'hello']);
