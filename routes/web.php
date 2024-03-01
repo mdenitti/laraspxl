@@ -25,4 +25,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('users/{id}',[UserController::class, 'hello']);
+Route::get('users/{id}',[UserController::class, 'getUser']);

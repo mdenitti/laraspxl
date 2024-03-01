@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     // make a hello world method
-    public function hello($id)
+    public function getUser($id)
     {
-        $name = "massimo";
-        $email = "test@test";
-        $values = ["key1"=>"value1", "key2"=>"value2"];
-        // DB fetch van de id
-        // return 'hello '.$id;
-        return view('welcome', compact('id', 'values', 'name', 'email'));
+        // select * from users where id = $id
+        $user = DB::table('users')->where('id', $id)->first();
+        // return view ('user', compact('user'));
+        return view ('userdetail', compact('user'));
     }
 }
