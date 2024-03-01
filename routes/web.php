@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $values= ["key1"=>"value1", "key2"=>"value2"];
+    $name = "massimo";
+    return view('welcome', compact('values', 'name'));
 });
