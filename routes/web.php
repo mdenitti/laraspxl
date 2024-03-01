@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // laravel way of doing $_GET business ?email=test@test.com
+    $email = request('email');
 
     $values= ["key1"=>"value1", "key2"=>"value2"];
     $name = "massimo";
-    return view('welcome', compact('values', 'name'));
+    return view('welcome', compact('values', 'name', 'email'));
 });
+
+Route::get('users/{id}', function ($id) {
+    
+}
