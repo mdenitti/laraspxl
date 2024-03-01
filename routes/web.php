@@ -16,13 +16,6 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
 
-    $users = DB::table('users')->get();
-    return view('welcome', compact('users'));
-
-
-});
-
-
+Route::get('/', [UserController::class, 'getAllUsers']);
 Route::get('users/{id}',[UserController::class, 'getUser']);
