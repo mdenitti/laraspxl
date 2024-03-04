@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TdayController;
 // use DB facade
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +26,7 @@ Route::get('/hello', function () {
     $b = 13;
     return $a + $b;
     // return view('welcome');
-})
+});
 
-Route::get('/', [UserController::class, 'getAllUsers']);
+Route::get('/', [TdayController::class, 'index']);
 Route::get('users/{id}',[UserController::class, 'getUser']);

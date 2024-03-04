@@ -1,6 +1,7 @@
-<h1>My Users<h1>
+<h1>Welkom op onze Themadag boeking<h1>
 
-@foreach($users as $user)
-    <a href="/users/{{$user->id}}">{{$user->name}}</a>
-    <hr>
+<select name="day">
+@foreach($tdays as $tday)
+    <option value="{{$tday->id}}">{{$tday->name}}</option> 
 @endforeach
+</select>
