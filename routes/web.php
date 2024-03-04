@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 // do not need a controller, but can develop the app in out web.php file
 // ofcourse... not best practice!
 
+// test routes
 Route::get('/hello', function () {
     $a = 12;
     $b = 13;
@@ -28,5 +29,18 @@ Route::get('/hello', function () {
     // return view('welcome');
 });
 
+// tday routes
 Route::get('/', [TdayController::class, 'index']);
+
+
+// user routes
 Route::get('users/{id}',[UserController::class, 'getUser']);
+
+// static navigation routes
+Route::get ('about', function () {
+    return view('about');
+});
+
+Route::get ('contact', function () {
+    return view('contact');
+});

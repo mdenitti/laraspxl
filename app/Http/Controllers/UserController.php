@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UserController extends Controller
 {
 
     public function getAllUsers () {
         // select * from users
-        $users = DB::table('users')->get();
+        //$users = DB::table('users')->get();
+        
+        $users = User::all(); // SELECT * FROM USERS;
+
         // return view ('users', compact('users'));
         return view ('welcome', compact('users'));
     }
