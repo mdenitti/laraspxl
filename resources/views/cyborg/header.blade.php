@@ -64,12 +64,15 @@ https://templatemo.com/tm-579-cyborg-gaming
                     </div>
                     <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
+                      
                     <ul class="nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about" class="active">Over ons</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                   
+
+                        <li><a href="/" class="{{ Request::path() === '/' ? 'active' : 'none' }}">Home</a></li>
+                        <li><a href="/about" class="{{ Request::path() === '/about' ? 'active' : 'none' }}">Over ons</a></li>
+                        <li><a href="/contact" class="{{ Request::path() === '/contact' ? 'active' : 'none' }}">Contact</a></li>
                     
-                        <li><a href="/profile">Profile <img src="{{asset('assets/images/profile-header.jpg')}}" alt=""></a></li>
+                        <li><a href="/profile" class="{{ Request::path() === '/profile' ? 'active' : 'none' }}">Profile <img src="{{asset('assets/images/profile-header.jpg')}}" alt=""></a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -80,4 +83,5 @@ https://templatemo.com/tm-579-cyborg-gaming
         </div>
     </div>
   </header>
+
   <!-- ***** Header Area End ***** -->
