@@ -1,4 +1,4 @@
-@extends('theme.app')
+@extends('cyborg.app')
 
 @section('extra')
 <h2>Extra yielded from the home</h2>

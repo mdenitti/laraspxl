@@ -1,4 +1,4 @@
-@extends('theme.app')
+@extends('cyborg.app')
 
 @section('content')
 <h1>Welkom op onze Themadag boeking<h1>
