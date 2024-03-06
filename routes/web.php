@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TdayController;
 // use DB facade
 use Illuminate\Support\Facades\DB;
+// use request
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +45,19 @@ Route::get ('about', function () {
 
 Route::get ('contact', function () {
     return view('contact');
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::post('save',function(Request $request){
+    //dd($request->all());
+    $location = new App\Models\Location;
+    $location->name = $request->name;
+    $location->save();
+
+    return redirect('/')->with('message', 'Location Added');
 });
