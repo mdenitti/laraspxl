@@ -7,6 +7,7 @@ use App\Http\Controllers\TdayController;
 use Illuminate\Support\Facades\DB;
 // use request
 use Illuminate\Http\Request;
+use App\Models\Location;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,20 @@ Route::get('/hello', function () {
     return $a + $b;
     // return view('welcome');
 });
+
+
+Route::get('promo', function(){
+
+        $Location = new Location;
+        $results = $Location::all();
+        $title = "Dit zijn one locaties";
+        //dd($result);
+
+        
+
+        return view ('promo',compact('results','title'));
+});
+
 
 // tday routes
 Route::get('/', [TdayController::class, 'index']);
