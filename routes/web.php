@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 // use request
 use Illuminate\Http\Request;
 use App\Models\Location;
+use App\Models\Tday;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,9 @@ Route::get('promo', function(){
         $title = "Dit zijn one locaties";
         //dd($result);
 
-        
-
-        return view ('promo',compact('results','title'));
+        $tdays = Tday::with('locations')->get();
+        //dd($tdays);
+        return view ('promo',compact('results','title','tdays'));
 });
 
 
