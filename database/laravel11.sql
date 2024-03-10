@@ -58,7 +58,7 @@ CREATE TABLE `bookings` (
   `updated_at` datetime DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `location_tday` (`id`, `location_id`, `tday_id`) VALUES
 (1, 1, 1),
