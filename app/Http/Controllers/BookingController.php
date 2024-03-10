@@ -31,7 +31,7 @@ class BookingController extends Controller
         $booking->phone = $request->phone;
 
         // Flash the booking object
-        Session::flash('booking', serialize($booking)); 
+        Session::flash('booking', encrypt($booking)); 
       
         $booking->save();
         return redirect('/')->with('message', 'Prima ontvangen. Bedankt.');

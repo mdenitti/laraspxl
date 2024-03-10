@@ -14,7 +14,7 @@
 @if(Session::has('booking'))
     <div class="booking-details">
         {{-- Unserialize the booking object --}}
-        @php $booking = unserialize(Session::get('booking')); @endphp
+        @php $booking = decrypt(Session::get('booking')); @endphp
 
         <p><strong>Naam:</strong> {{ $booking->firstname . ' ' . $booking->lastname }}</p>
         <p><strong>Email & telefoon:</strong> {{ $booking->email . ' ' . $booking->phone }}</p>
