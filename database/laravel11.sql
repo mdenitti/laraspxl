@@ -54,6 +54,7 @@ CREATE TABLE `bookings` (
   `firstname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `tday_id` int DEFAULT NULL,
+  `location_id` int DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
