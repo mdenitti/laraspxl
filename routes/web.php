@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TdayController;
+use App\Http\Controllers\BookingController;
 // use DB facade
 use Illuminate\Support\Facades\DB;
 // use request
 use Illuminate\Http\Request;
 use App\Models\Location;
 use App\Models\Tday;
+use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +44,7 @@ Route::get('promo', function(){
         //dd($result);
 
         $tdays = Tday::with('locations')->get();
-        //dd($tdays);
+       // dd($tdays);
         return view ('promo',compact('results','title','tdays'));
 });
 
@@ -69,11 +71,17 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-Route::post('save',function(Request $request){
+/* Route::post('save',function(Request $request){
     //dd($request->all());
     $location = new App\Models\Location;
     $location->name = $request->name;
     $location->save();
 
     return redirect('/')->with('message', 'Location Added');
-});
+}); */
+
+
+// booking routes
+
+// booking.store named route
+Route::post('store', [BookingController::class, 'store'])->name('booking.store');
