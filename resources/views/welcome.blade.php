@@ -1,8 +1,5 @@
 @extends('cyborg.app')
-
 @section('content')
-
-
 <h3>Welkom op onze Themadag boeking<h3>
 
 @if (session('message'))
@@ -57,5 +54,5 @@
 @endsection
 
 @section('extra')
-<h2>Extra yielded from the home</h2>
+<h4>Ontdek onze locaties</h2>
 @endsection

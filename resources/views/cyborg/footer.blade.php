@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <p>Copyright © @php echo date('Y'); @endphp <a href="#">SyntraPXL Gaming</a> Company. All rights reserved. 
           
-          <br>Design: <a href="https://syntrapxl.be" target="_blank" title="">TemplateMo</a> SyntraPXL By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a>
+        
         </div>
       </div>
     </div>

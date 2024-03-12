@@ -8,3 +8,54 @@
     border-radius: 5px;
     margin-top: -8px;
 }
+
+.header-area .main-nav .nav li a.active {
+    color: #227FB4 !important;
+}
+
+
+.header-area .main-nav .nav li a:hover {
+    color: white !important;
+}
+
+
+::selection {
+    background: #ffffff;
+    color: #000;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: white;
+    background-image: url('https://images.unsplash.com/photo-1581047800850-0cb82075a02f?q=80&w=3012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')!important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.page-content {
+    background-color: #00000040 !important;
+}
+
+
+.header-area {
+    background-color: #070707de;
+    position: absolute;
+    height: 85px; 
+    top: 15px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    transition: all .5s ease 0s;
+    margin-top: -16px;
+    /* padding: 9px; */
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 29px;
+    margin-bottom: 21px;
+}
