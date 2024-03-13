@@ -55,4 +55,13 @@
 
 @section('extra')
 <h4>Ontdek onze locaties</h2>
+@foreach ($ptdays as $ptday)
+    <b>{{ $ptday->name }}</b>
+    <br>
+    @foreach($ptday->locations as $location)
+       <span class="badge text-bg-dark">{{ date('d-m-Y', strtotime($ptday->date)) }} - {{ $location->name }}</span>
+    @endforeach
+    <hr>
+@endforeach
+{{ $ptdays->links() }}
 @endsection

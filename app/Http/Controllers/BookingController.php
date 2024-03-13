@@ -12,6 +12,7 @@ class BookingController extends Controller
     public function store(Request $request)
     {
 
+        //dd($request->all());
         $booking = new Booking();
 
         /*

@@ -12,6 +12,9 @@ class TdayController extends Controller
     {
         $tdays = Tday::with('locations')->get();
         //dd($tdays);
-        return view('welcome', compact('tdays'));
+        // paginate(3)
+        $ptdays = Tday::with('locations')->paginate(2);
+       
+        return view('welcome', compact('tdays', 'ptdays'));
     }
 }
