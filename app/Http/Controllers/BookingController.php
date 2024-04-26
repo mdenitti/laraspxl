@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
-
     public function store(Request $request)
     {
 
@@ -42,6 +41,14 @@ class BookingController extends Controller
         });
 
         // it's time for the semi-grand finale ... let's send the mail in HTML to auntie Frieda!
+
+       
+        Mail::send('mail.booking', compact('booking'), function($message) use ($booking){ 
+            $message->to($booking->email);
+            // blind carbon copy -> see how my client receive their emails
+            // $message->bcc('admin@deblauwevogel.be', 'DBV');
+            $message->subject('Bedankt voor uw booking: ' . $booking->firstname . ' ' . $booking->lastname . ' (' . $booking->email . ')'); 
+        });
       
         $booking->save();
         return redirect('/')->with('message', 'Prima ontvangen. Bedankt.');
