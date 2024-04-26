@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\BookingMail;
 
 class BookingController extends Controller
 {
@@ -41,8 +42,6 @@ class BookingController extends Controller
         });
 
         // it's time for the semi-grand finale ... let's send the mail in HTML to auntie Frieda!
-
-       
         Mail::send('mail.booking', compact('booking'), function($message) use ($booking){ 
             $message->to($booking->email);
             // blind carbon copy -> see how my client receive their emails
@@ -50,6 +49,11 @@ class BookingController extends Controller
             $message->subject('Bedankt voor uw booking: ' . $booking->firstname . ' ' . $booking->lastname . ' (' . $booking->email . ')'); 
         });
       
+        // Send an extra email to the client with some instructions on how get to the location.
+        // But this time we will use the mailable instead of the send method.
+        Mail::to($booking->email)->send(new BookingMail($booking));
+
+
         $booking->save();
         return redirect('/')->with('message', 'Prima ontvangen. Bedankt.');
     }
