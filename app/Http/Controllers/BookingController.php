@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -33,6 +34,14 @@ class BookingController extends Controller
 
         // Flash the booking object
         Session::flash('booking', encrypt($booking)); 
+
+        // let's send out an admin notification email with this booking and the laravel raw method
+        Mail::raw('New themadag booking: ' . $booking->firstname . ' ' . $booking->lastname . ' (' . $booking->email . ')', function ($message) {
+            $message->from('admin@deblauwevogel.be', 'DBV');
+            $message->to('admin@deblauwevogel.be', 'DBV');
+        });
+
+        // it's time for the semi-grand finale ... let's send the mail in HTML to auntie Frieda!
       
         $booking->save();
         return redirect('/')->with('message', 'Prima ontvangen. Bedankt.');
