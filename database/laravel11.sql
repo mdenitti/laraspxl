@@ -1,10 +1,10 @@
 -- -------------------------------------------------------------
--- TablePlus 5.9.0(539)
+-- TablePlus 6.0.0(551)
 --
 -- https://tableplus.com/
 --
 -- Database: laravel11
--- Generation Time: 2024-04-23 10:20:09.3150
+-- Generation Time: 2024-04-29 09:57:15.1760
 -- -------------------------------------------------------------
 
 
@@ -29,7 +29,7 @@ CREATE TABLE `bookings` (
   `phone` varchar(255) DEFAULT NULL,
   `location_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `data_rows` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -90,6 +90,12 @@ CREATE TABLE `location_tday` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `locations` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE `menu_items` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `menu_id` int unsigned DEFAULT NULL,
@@ -123,7 +129,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `password_reset_tokens` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -248,7 +254,20 @@ INSERT INTO `bookings` (`id`, `lastname`, `firstname`, `email`, `tday_id`, `crea
 (4, 'sqds', 'sdsqd', 'sqdq@fdfds.com', 1, '2024-03-10 13:55:45', '2024-03-10 13:55:45', '092830932', 1),
 (5, 'sqqsd', 'qsdsqd', 'qsdqsd@dsflksd.com', 2, '2024-03-10 13:58:05', '2024-03-10 13:58:05', '2093830', 3),
 (6, 'sdfdf', 'dsfsdf', 'dfdf@fdsfs.com', 2, '2024-03-10 14:15:30', '2024-03-10 14:15:30', '098923', 2),
-(7, 'Tante', 'Frieda', 'frieda@gmail.com', 2, '2024-03-13 08:22:20', '2024-03-13 08:22:20', '20398209382039', 3);
+(7, 'Tante', 'Frieda', 'frieda@gmail.com', 2, '2024-03-13 08:22:20', '2024-03-13 08:22:20', '20398209382039', 3),
+(8, 'Tante', 'Frieda', 'frieda@favoritetante.be', 1, '2024-04-26 08:15:44', '2024-04-26 08:15:44', '20398309823', 1),
+(9, 'Tante', 'Frieda', 'frieda@favoritetante.be', 1, '2024-04-26 08:26:01', '2024-04-26 08:26:01', '20398309823', 1),
+(10, 'Tante', 'Frieda', 'frieda@favoritetante.be', 1, '2024-04-26 09:40:47', '2024-04-26 09:40:47', '20398309823', 1),
+(11, 'Tante', 'Frieda', 'frieda@favoritetante.be', 1, '2024-04-26 09:45:15', '2024-04-26 09:45:15', '20398309823', 1),
+(12, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 09:48:39', '2024-04-26 09:48:39', '094830948', 1),
+(13, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 10:00:49', '2024-04-26 10:00:49', '094830948', 1),
+(14, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 10:01:19', '2024-04-26 10:01:19', '094830948', 1),
+(15, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 10:03:40', '2024-04-26 10:03:40', '094830948', 1),
+(16, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 11:14:57', '2024-04-26 11:14:57', '094830948', 1),
+(17, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 12:05:02', '2024-04-26 12:05:02', '094830948', 1),
+(18, 'Tante', 'Frieda', 'frieda@test.com', 1, '2024-04-26 12:11:45', '2024-04-26 12:11:45', '094830948', 1),
+(19, 'Tante', 'Frieda', 'frieda@test.com', 2, '2024-04-26 12:12:14', '2024-04-26 12:12:14', '094830948', 3),
+(20, 'Test', 'test', 'test@test.com', 1, '2024-04-29 07:41:27', '2024-04-29 07:41:27', '0289203823', 1);
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
 (1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
@@ -296,9 +315,12 @@ INSERT INTO `location_tday` (`id`, `location_id`, `tday_id`) VALUES
 (2, 2, 1),
 (3, 3, 2),
 (4, 2, 2),
-(5, 1, 3),
-(6, 5, 3),
-(7, 6, 4);
+(5, 1, 3);
+
+INSERT INTO `locations` (`id`, `name`) VALUES
+(1, 'Genk'),
+(2, 'ST-Truiden'),
+(3, 'Hasselt');
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Dashboard', '', '_self', 'voyager-boat', NULL, NULL, 1, '2024-03-05 13:07:45', '2024-03-05 13:07:45', 'voyager.dashboard', NULL),
@@ -341,7 +363,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2018_03_14_000000_add_details_to_data_types_table', 1),
 (22, '2018_03_16_000000_make_settings_value_nullable', 1),
 (23, '2019_08_19_000000_create_failed_jobs_table', 1),
-(24, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+(24, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(28, '2024_04_23_075518_create_locations_table', 2),
+(29, '2024_04_23_093027_lksdjfdslkfjsdlk', 2),
+(30, '2024_04_23_093407_update_description_on_locations_table', 3),
+(31, '2024_04_23_094544_update_description_string_on_locations_table', 4),
+(32, '2024_04_23_094616_update_description_string_on_locations_table', 4);
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
