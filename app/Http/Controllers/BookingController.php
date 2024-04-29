@@ -7,6 +7,8 @@ use App\Models\Booking;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\BookingMail;
+use App\Models\Location;
+use App\Models\Tday;
 
 class BookingController extends Controller
 {
@@ -32,6 +34,10 @@ class BookingController extends Controller
         $booking->email = $request->email;
         $booking->phone = $request->phone;
 
+        $location = Location::find($location_id);
+        $tday = Tday::find($tday_id);
+
+        //dd($tday);
         // Flash the booking object
         Session::flash('booking', encrypt($booking)); 
 
@@ -42,7 +48,7 @@ class BookingController extends Controller
         });
 
         // it's time for the semi-grand finale ... let's send the mail in HTML to auntie Frieda!
-        Mail::send('mail.booking', compact('booking'), function($message) use ($booking){ 
+        Mail::send('mail.booking', compact('booking', 'location', 'tday'), function($message) use ($booking){ 
             $message->to($booking->email);
             // blind carbon copy -> see how my client receive their emails
             // $message->bcc('admin@deblauwevogel.be', 'DBV');

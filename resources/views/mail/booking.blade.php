@@ -13,6 +13,7 @@
     <img src="{{ asset('img/dbv_main_logo.png') }}" alt="De Blauwe vogel">
     <h1>Bedankt voor uw boeking</h1>
     <p><b>Naam: {{$booking->firstname . ' ' . $booking->lastname}}</b></p>
+    <p>U gaat naar: {{$tday->name}} in {{$location->name}}</p>
     <p>Wij contacteren u ASAP,<br>mvg De Blauwe vogel</p>
 </body>
 </html>
